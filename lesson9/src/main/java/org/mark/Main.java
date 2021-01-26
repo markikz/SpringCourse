@@ -7,13 +7,10 @@ public class Main {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
+        MusicPlayer player =
+                context.getBean("musicPlayer", MusicPlayer.class);
 
-        ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
-        RockMusic rockMusic = context.getBean("rockMusic", RockMusic.class);
-
-        System.out.println( classicalMusic.getSong());
-        System.out.println( rockMusic.getSong());
-
+        player.playMusic();
         context.close();
     }
 }
